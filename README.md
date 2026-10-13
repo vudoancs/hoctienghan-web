@@ -57,13 +57,13 @@ Chạy `npm run check:publish` để xem danh sách hiện tại (kết quả l�
 
 **Bắt buộc (chủ app cung cấp; tôi không tự điền)**
 - [ ] `SITE_URL` — địa chỉ website (canonical, hreflang, sitemap)
-- [ ] `SUPPORT_EMAIL` — email hỗ trợ / quyền riêng tư
-- [ ] `policy.lastUpdated` — ngày hiệu lực của chính sách và điều khoản
-- [ ] `policy.minimumAge` — khớp “Đối tượng mục tiêu” trong Play Console
-- [ ] `policy.retention.serverLogsDays` — Workers Logs (observability đang bật trong `wrangler.jsonc`) giữ log **3 ngày (Workers Free) hoặc 7 ngày (Workers Paid)**. Token Wrangler hiện tại không có quyền đọc gói dịch vụ, nên chủ app cần chọn giá trị theo gói thực tế
-- [ ] `policy.retention.backupDays` — D1 Time Travel luôn bật, giữ bản phục hồi **7 ngày (Free) hoặc 30 ngày (Paid)**, bao gồm cả tài khoản đã xóa
-- [ ] `policy.retention.deletionRecordDays` — thời hạn giữ hồ sơ yêu cầu xóa. Backend **chưa có job tự xóa**; sau khi chọn thời hạn cần thêm bước dọn dẹp vào cron
-- [ ] `policy.retention.analyticsMonths` — cài đặt lưu giữ trong Firebase/GA4 (2 hoặc 14 tháng). Firebase hiện chưa được cấu hình trong app; nếu bản phát hành không dùng Firebase, đặt `services.firebaseAnalytics = false`
+- [x] `SUPPORT_EMAIL` — đã đặt trên Vercel
+- [x] `policy.lastUpdated` = 2026-10-13. Cập nhật mỗi khi sửa nội dung chính sách hoặc điều khoản
+- [x] `policy.minimumAge` = 13. Trong Play Console → App content → Target audience, **không chọn nhóm dưới 13 tuổi**
+- [x] `policy.retention.serverLogsDays` = 3 — Workers Logs trên gói Workers Free (chủ app xác nhận 2026-10-13). Đổi thành 7 nếu nâng lên Workers Paid
+- [x] `policy.retention.backupDays` = 7 — D1 Time Travel trên gói Free (chủ app xác nhận 2026-10-13). Đổi thành 30 nếu nâng lên Workers Paid
+- [x] `policy.retention.deletionRecordDays` = 365, khớp `DELETION_RECORD_DAYS` của backend (cron tự xóa)
+- [x] Firebase chưa dùng (chủ app xác nhận 2026-10-13): `services.firebaseAnalytics = false`, nên không cần `analyticsMonths`. Khi bật Firebase trong app, đặt lại `true` và điền `analyticsMonths`
 - [ ] `developer.name` — đang là “Lada Tech” (tên publisher lấy từ link “Ứng dụng khác” trong app). Xác nhận khớp Play Console
 
 **Tùy chọn (có phương án dự phòng)**

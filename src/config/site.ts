@@ -60,9 +60,9 @@ export const site = {
 
   policy: {
     /** Last-updated date of the privacy policy and terms, YYYY-MM-DD. */
-    lastUpdated: null as string | null,
+    lastUpdated: '2026-10-13' as string | null,
     /** Minimum age to use the app, matching the Play Console target audience. */
-    minimumAge: null as number | null,
+    minimumAge: 13 as number | null, // Play Console target audience must not include under-13s
 
     /**
      * Retention after an account is deleted. Each entry needs the owner to
@@ -70,19 +70,19 @@ export const site = {
      */
     retention: {
       /** Cloudflare Workers Logs (observability is on): 3 days on Workers Free, 7 on Workers Paid. Set to the account's plan. */
-      serverLogsDays: null as number | null,
+      serverLogsDays: 3 as number | null, // Workers Free (confirmed by the owner 2026-10-13)
       /**
        * Rows of account_deletion_requests (backend): internal user id, SHA-256
        * of the email, request/completion times. No automatic purge exists yet;
        * the owner sets the period and the backend cleanup must match it.
        */
-      deletionRecordDays: null as number | null,
+      deletionRecordDays: 365 as number | null, // must equal DELETION_RECORD_DAYS in backend-api/wrangler.jsonc
       /**
        * Cloudflare D1 Time Travel keeps point-in-time restores of the database
        * (including deleted accounts) for 7 days on Workers Free, 30 on Workers
        * Paid; it can't be turned off. Set to the account's plan.
        */
-      backupDays: null as number | null,
+      backupDays: 7 as number | null, // Workers Free (confirmed by the owner 2026-10-13)
       /** Firebase Analytics data retention set in the Firebase console (2 or 14 months). */
       analyticsMonths: null as number | null,
     },
@@ -97,7 +97,7 @@ export const site = {
   services: {
     youtube: true,
     admob: true,
-    firebaseAnalytics: true,
+    firebaseAnalytics: false, // not configured in the app (no google-services.json / firebase_options.dart); owner confirmed 2026-10-13
     googleSignIn: true,
     appleSignIn: true,
     /** Favorites/history/notes/progress uploaded to the server. Not built yet (phase 5). */
