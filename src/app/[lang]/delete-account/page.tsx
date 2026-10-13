@@ -33,7 +33,7 @@ export default async function DeleteAccount({ params }: Props) {
         <div className="app-card card">
           <Image src="/icon-512.png" alt="" width={56} height={56} className="app-icon" />
           <dl>
-            <div><dt>{d.appLabel}</dt><dd>{site.appName[lang]} <span className="muted">({site.packageId})</span></dd></div>
+            <div><dt>{d.appLabel}</dt><dd>{site.appName[lang]}</dd></div>
             <div><dt>{t.common.developer}</dt><dd>{ctx.developer}</dd></div>
             <div><dt>{t.common.contact}</dt><dd><SupportEmail t={t} /></dd></div>
           </dl>

@@ -10,7 +10,7 @@ const content: LegalContent = {
         body: (
           <>
             <p>
-              This policy explains how the <strong>{c.appName}</strong> app (app ID <code>{c.site.packageId}</code>) and this website,
+              This policy explains how the <strong>{c.appName}</strong> app and this website,
               developed by <strong>{c.developer}</strong> (“we”), process your data.
             </p>
             <p>Privacy contact: {c.email}{c.site.developer.address && <> · Address: {c.site.developer.address}</>}</p>

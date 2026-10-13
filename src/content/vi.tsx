@@ -10,7 +10,7 @@ const content: LegalContent = {
         body: (
           <>
             <p>
-              Chính sách này giải thích cách ứng dụng <strong>{c.appName}</strong> (mã ứng dụng <code>{c.site.packageId}</code>) và
+              Chính sách này giải thích cách ứng dụng <strong>{c.appName}</strong> và
               website này, do <strong>{c.developer}</strong> (“chúng tôi”) phát triển, xử lý dữ liệu của bạn.
             </p>
             <p>Liên hệ về quyền riêng tư: {c.email}{c.site.developer.address && <> · Địa chỉ: {c.site.developer.address}</>}</p>

@@ -10,7 +10,7 @@ const content: LegalContent = {
         body: (
           <>
             <p>
-              本政策说明由 <strong>{c.developer}</strong>（“我们”）开发的 <strong>{c.appName}</strong> 应用（应用 ID <code>{c.site.packageId}</code>）及本网站如何处理您的数据。
+              本政策说明由 <strong>{c.developer}</strong>（“我们”）开发的 <strong>{c.appName}</strong> 应用及本网站如何处理您的数据。
             </p>
             <p>隐私联系方式：{c.email}{c.site.developer.address && <> · 地址：{c.site.developer.address}</>}</p>
           </>
