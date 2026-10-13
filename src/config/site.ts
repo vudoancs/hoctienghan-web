@@ -49,7 +49,7 @@ export const site = {
      * list this site's origin in its CORS_ORIGINS. Unset: the deletion page
      * falls back to the support-email procedure and never pretends to submit.
      */
-    apiBaseUrl: env('API_BASE_URL'),
+    apiBaseUrl: env('API_BASE_URL')?.replace(/[./]+$/, '') ?? null,
     /**
      * Only for the support-email fallback (no API): days from verified
      * request to deletion, as confirmed by the owner. With the API, deletion

@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 // The confirmation page only talks to this site and the API: no third-party scripts at all.
 const apiOrigin = (() => {
   try {
-    return process.env.API_BASE_URL ? new URL(process.env.API_BASE_URL).origin : '';
+    return process.env.API_BASE_URL ? new URL(process.env.API_BASE_URL.trim().replace(/[./]+$/, '')).origin : '';
   } catch {
     return '';
   }
